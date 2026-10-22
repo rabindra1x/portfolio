@@ -24,7 +24,7 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
         <span className="hidden text-xs text-smoke sm:block">Progress shows what you&apos;ve watched so far</span>
       </div>
       <div className="group/rail relative">
-        <div ref={rail} className="rail gutter flex snap-x snap-mandatory gap-3 overflow-x-auto py-8 sm:gap-4" data-cursor={fine ? undefined : 'drag'}>
+        <div ref={rail} className="rail gutter flex snap-x snap-mandatory gap-3 overflow-x-auto py-8 sm:gap-4">
           {order.map((id, i) => {
             const meta = sectionMeta[id];
             const p = progress[id] ?? 0;
@@ -33,7 +33,6 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
               <motion.button
                 key={id}
                 type="button"
-                data-cursor="play"
                 onClick={() => scrollTo(`#${id}`)}
                 onHoverStart={() => setHovered(i)}
                 onHoverEnd={() => setHovered(null)}

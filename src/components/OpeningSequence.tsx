@@ -6,7 +6,7 @@ import { EASE, Magnetic } from './fx';
 
 /**
  * The signature moment:
- * black → studio card → SUSHMITA → THE SERIES → portrait reveal → role → ▶ PLAY
+ * black → studio card → RABINDRA → THE SERIES → portrait reveal → role → ▶ PLAY
  */
 const TIMELINE = [
   { at: 300, beat: 1 }, // studio card
@@ -133,7 +133,6 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
           <Magnetic>
             <button
               type="button"
-              data-cursor="play"
               onClick={onDone}
               tabIndex={beat >= 6 ? 0 : -1}
               className="group flex items-center gap-3 rounded-full bg-bone px-9 py-4 font-sans text-base font-bold tracking-wide text-ink shadow-[0_0_60px_rgba(229,19,43,0.45)] transition hover:bg-white"

@@ -78,21 +78,47 @@ body {
 }
 
 /* Hide scrollbars on horizontal rails while keeping them scrollable */
-.rail {
+.rail,
+.no-scrollbar {
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
 }
-.rail::-webkit-scrollbar {
+.rail::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-/* Custom cursor: hide the native one only when ours is active */
-.has-custom-cursor,
-.has-custom-cursor a,
-.has-custom-cursor button,
-.has-custom-cursor [role='button'] {
-  cursor: none;
+/* Native pointer behavior.
+   The old custom cursor hid the native pointer and replaced it with a
+   circular overlay. These defaults restore natural browser cursors
+   everywhere while keeping interactive elements discoverable. */
+html,
+body,
+#root {
+  cursor: auto;
+}
+
+a,
+button,
+[role='button'],
+[role='link'],
+summary {
+  cursor: pointer;
+}
+
+input,
+textarea {
+  cursor: text;
+}
+
+select {
+  cursor: default;
+}
+
+button:disabled,
+[aria-disabled='true'] {
+  cursor: default;
 }
 
 .text-outline {

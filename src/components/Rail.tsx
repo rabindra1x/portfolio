@@ -15,15 +15,22 @@ export function RailButtons({ rail }: { rail: RefObject<HTMLDivElement | null> }
     update();
     el.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
+    // Card widths change with the viewport/fonts, not only on window resize.
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
     return () => {
       el.removeEventListener('scroll', update);
       window.removeEventListener('resize', update);
+      ro.disconnect();
     };
   }, [rail]);
 
   const page = (dir: 1 | -1) => {
     const el = rail.current;
-    if (el) el.scrollBy({ left: dir * el.clientWidth * 0.8, behavior: 'smooth' });
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    const next = Math.min(Math.max(el.scrollLeft + dir * el.clientWidth * 0.82, 0), max);
+    el.scrollTo({ left: next, behavior: 'smooth' });
   };
 
   const base =
@@ -32,12 +39,12 @@ export function RailButtons({ rail }: { rail: RefObject<HTMLDivElement | null> }
   return (
     <>
       {canLeft && (
-        <button type="button" aria-label="Scroll left" onClick={() => page(-1)} className={`${base} left-0 from-ink/90 to-transparent`}>
+        <button type="button" aria-label="Previous projects" onClick={() => page(-1)} className={`${base} left-0 from-ink/90 to-transparent`}>
           ‹
         </button>
       )}
       {canRight && (
-        <button type="button" aria-label="Scroll right" onClick={() => page(1)} className={`${base} right-0 from-transparent to-ink/90`}>
+        <button type="button" aria-label="Next projects" onClick={() => page(1)} className={`${base} right-0 from-transparent to-ink/90`}>
           ›
         </button>
       )}

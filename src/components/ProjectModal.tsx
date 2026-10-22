@@ -59,7 +59,6 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               ref={closeBtn}
               type="button"
               onClick={onClose}
-              data-cursor="close"
               aria-label="Close project"
               className="absolute right-4 top-[max(1rem,env(safe-area-inset-top))] z-10 flex h-11 w-11 items-center justify-center rounded-full bg-black/60 text-lg text-bone backdrop-blur transition hover:bg-black"
             >
@@ -98,7 +97,6 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
-                    data-cursor="link"
                     className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
                   >
                     GitHub ↗
@@ -173,7 +171,6 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
                   <button
                     key={p.id}
                     type="button"
-                    data-cursor="view"
                     onClick={() => onSwitch(p)}
                     className="group relative aspect-video overflow-hidden rounded-xl text-left ring-1 ring-white/10 transition hover:ring-white/30"
                   >

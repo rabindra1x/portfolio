@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
-import { achievements, certifications, education, profile, projects, type ProfileId } from '../data/portfolio';
+import { certifications, education, experience, profile, projects, type ProfileId } from '../data/portfolio';
 import { useFinePointer } from '../hooks/useMedia';
 import { useSmoothScroll } from '../hooks/smoothScroll';
 import { EASE, Magnetic, Particles } from './fx';
@@ -37,16 +37,16 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
   const glowX = useTransform(px, [-1, 1], ['-6%', '6%']);
 
   const meta = [
-    education[0].period.split(' – ')[0].split(' ')[1] + ' – Present',
-    'B.Tech AI & ML',
+    education[0].period,
+    'B.Sc. CSE · IIT Patna',
     `${projects.length} Originals`,
     `${certifications.length} Certifications`,
   ];
 
   const floating = [
-    { text: education[0].score, sub: 'B.Tech AI & ML', pos: 'left-[2%] top-[30%]', depth: 1 },
-    { text: `${achievements[0].title}`, sub: achievements[0].org, pos: 'right-[0%] top-[18%]', depth: -1 },
-    { text: 'Java · React · Node.js', sub: 'Primary stack', pos: 'right-[4%] bottom-[24%]', depth: 0.6 },
+    { text: education[0].score, sub: 'IIT Patna · CSE', pos: 'left-[2%] top-[30%]', depth: 1 },
+    { text: experience[0].role, sub: experience[0].company, pos: 'right-[0%] top-[18%]', depth: -1 },
+    { text: 'Python · LangGraph · FastAPI', sub: 'Primary stack', pos: 'right-[4%] bottom-[24%]', depth: 0.6 },
   ];
 
   return (
@@ -149,7 +149,6 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
           <Magnetic>
             <button
               type="button"
-              data-cursor="play"
               onClick={onPlay}
               className="flex min-h-12 items-center gap-3 rounded-md bg-bone px-6 py-3 text-[15px] font-bold text-ink transition hover:bg-white sm:px-8"
             >

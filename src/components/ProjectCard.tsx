@@ -16,7 +16,6 @@ export default function ProjectCard({ project, index, onOpen }: { project: Proje
         <div
           role="button"
           tabIndex={0}
-          data-cursor="view"
           onClick={onOpen}
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -59,7 +58,6 @@ export default function ProjectCard({ project, index, onOpen }: { project: Proje
                   href={project.github}
                   target="_blank"
                   rel="noreferrer"
-                  data-cursor="link"
                   onClick={(e) => e.stopPropagation()}
                   className="flex min-h-11 items-center gap-2 rounded-md border border-white/25 bg-black/30 px-4 text-sm font-semibold text-bone backdrop-blur transition hover:border-bone"
                 >
