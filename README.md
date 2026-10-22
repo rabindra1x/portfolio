@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # RABINDRA — THE SERIES
 
 A cinematic, streaming-inspired portfolio for **Rabindra Kumar**: AI/ML Engineer, Generative AI, and Full-Stack AI Engineer.
@@ -87,3 +88,6 @@ scripts/build-images.mjs   ← portrait/share-image pipeline (sharp)
 - **Opening:** Enter or Esc skips it.
 - **Play Intro:** Space pauses, ← and → change slides, Esc closes.
 - **Project and resume overlays:** Esc closes.
+=======
+# portfolio
+>>>>>>> 96a7fbc14fb192c0d60331b44a40f0cbae2e1be3
